@@ -1,0 +1,26 @@
+Comando para Criar Container Redis
+docker run --name redis -d -p 6379:6379 redis:latest
+
+Acessar o Redis CLI pelo comando cli do Docker Desktop 
+No Docker-Desktop clicar em CLI, e na janela de prompt que se abre digitar: redis-cli 
+
+Comandos do Redis
+https://redis.io/commands 
+
+# Insere boletas no Redis
+SADD planilhasEnquadramento:opi:boletas boletal boleta2 boleta3 boleta4 boletal
+
+#Obtêm lista das boletas
+SMEMBERS planilhasEnquadramento:opt:boletas
+
+# Atualiza status das boletas
+HSET planilhasEnquadramento:opl estado EM PROCESSAMENTO
+ 
+# Verificar o campo "estado"
+HGET planilhasEnquadramento:opl estado
+
+# Obtem todas as propriedades da chave
+HGETALL planilhasEnquadramento:opi
+
+# Na planilha de enquadramento muda estado para processado, passa o nome do bucket e o nome do objeto de upload
+HSET planilhasEnquadramento:opl estado PROCESSADO bucket fu7-xxy object enquadramento_exceliqwyeuqwieyqwuie.xls
